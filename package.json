@@ -32,9 +32,11 @@
     "npm": "^8.15.x"
   },
   "dependencies": {
+    "@fvilers/disable-react-devtools": "^1.x",
+    "@tanstack/react-query": "^4.12.0",
+    "axios": "^1.1.3",
     "react": "^18.x",
-    "react-dom": "^18.x",
-    "@fvilers/disable-react-devtools": "^1.x"
+    "react-dom": "^18.x"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.x",
