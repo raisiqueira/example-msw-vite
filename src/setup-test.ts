@@ -1,17 +1,19 @@
 import '@testing-library/jest-dom'
 import { afterAll, afterEach, beforeAll } from 'vitest'
 
-import { server } from './mocks'
+import { server } from '@/mocks/server'
+import { createCache } from '@/utils/test-utils'
+
+const queryCache = createCache()
 
 beforeAll(() => {
-  server.listen()
+  server.listen({ onUnhandledRequest: 'error' })
 })
 
-beforeAll(() => {
+afterEach(() => {
   server.resetHandlers()
+  queryCache.clear()
 })
-
-afterEach(() => server.resetHandlers())
 
 afterAll(() => {
   server.close()

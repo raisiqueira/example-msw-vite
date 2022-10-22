@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 
 import { App } from './'
 
-describe('App', () => {
+describe.skip('App', () => {
   test('should return the correct text', () => {
     render(<App />)
 

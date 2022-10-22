@@ -8,6 +8,7 @@ export default defineConfig({
   envDir: './env/',
   plugins: [react(), tsconfigPaths()],
   test: {
+    css: false,
     globals: true,
     watch: false,
     environment: 'happy-dom',
