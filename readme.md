@@ -1,69 +1,47 @@
-# Eruption 🌋
+# example-msw-vite
 
-> Next Generation Boilerplate for React/Typescript, built on top of Vite ⚡️
+A real-world example of using [MSW](https://mswjs.io/) with [Vite](https://vitejs.dev/) and [@tanstack/react-query](https://tanstack.com/query/v4).
 
-_It's fast! Even the tests are fast, thanks to Vite with Vitest ⚡️_
+## Getting started
 
-# What's in the boilerplate
+Clone the repository and install the dependencies:
 
-- [Vite](https://vitejs.dev/)
-- [React](https://reactjs.org/)
-- [Typescript](https://www.typescriptlang.org/)
-- [Vitest](https://vitest.dev/)
-- [Testing Library](https://testing-library.com/)
-- Dev Tools
-  - [ESLint](https://eslint.org/)
-  - [Prettier](https://prettier.io/)
-  - [CommitLint](https://commitlint.js.org/#/)
-  - [Husky](https://typicode.github.io/husky/#/)
-  - [Lint-Staged](https://github.com/okonet/lint-staged)
-
-# Installation
-
-This project uses [DEGIT](https://github.com/Rich-Harris/degit) to scaffold.
-
-first, clone the project and give it a name
-
-```Bash
-npx degit github:eruptionjs/core#main your-project-name
+```sh
+git clone https://github.com/raisiqueira/example-msw-vite
+cd example-msw-vite
+pnpm install
 ```
 
-then, to start the project
+Start the development server:
 
-```Bash
-cd your-project-name
-npm install
-npm run dev
+```sh
+pnpm dev
 ```
 
-## Try it online
+### Testing the project
 
-Want to try Eruption without clone local? Try it on [StackBlitz](https://stackblitz.com/fork/github/eruptionjs/core)
+Run the tests:
 
-# Commits
-
-This project have commits configured to follow the Conventional Commits's best practice and it's configured with ESLint, Prettier and Stylelint.
-
-To commit, you must follow the convention `<type>[optional scope]: <description>`. In practice, it would be as follow:
-
-```git
-git commit -m "feat: add button component"
+```sh
+pnpm run test
 ```
 
-Then, Husky will start the pre-commit hook and run lint-staged, who will run `prettier` and `lint` to validate code format and code lint. If you fail to follow any one of these validations above, the commit will be aborted.
+## Project structure
 
-After that, if everything is validated correctly, Husky will proceed with the commit-msg hook, where he will evaluate if your commit message is following the Conventional Commit's best practice and will run the tests of your project. If any of the tests are broken, the commit will be aborted. You must fix the tests before proceeding.
+> This project is based on the [Eruption template](https://github.com/eruptionjs/core).
 
-You can also commit your files with the help of the CLI. To do so just run `npm run commit` .From there, the CLI will assist you on the proccess. As said before: if your files fail the validation, you must fix it before proceeds.
+This project is a simple example of a React application that uses [MSW](https://mswjs.io/) to mock API requests. All requests are mocked in the `src/mocks/handlers.ts` file.
 
-As a best practice, it is strongly suggested that you avoid skip validations. If you need to change the way your commit messages are written, just go to file `commitlint.config.ts` and you will find there the configs needed.
+To fetch data from the API, the application uses the `@tanstack/react-query` (former `react-query`).
 
-# Motivation
+The MSW files are located in the `mocks` folder. The `src/mocks/browser.ts` file is the entry point for the MSW worker. The `src/mocks/handlers.ts` file contains the handlers for the mocked requests.
 
-Everything started because I was in need of a good, solid, reliable and fast boilerplate to work with React/Typescript projects. I was working with Create-React-App and Webpack but both of them wasn't that good at all, specially in performance. Later on I discovered that I could use Vite to replace Webpack, so here we are now. =)
+The other related files are:
 
-I believe that Eruption as it is right now, is an excellent starting point to any React/Typescript project, with enough dev tools to help you to write the best software possible and ship to production without any headaches.
+- `src/App/services`: the file that contains an axios instance to fetch data from the API.
+- `src/App/hooks`: the file that contains the `useQuery` hook to fetch data from the API.
+- `src/App/components/HLTVMatches`: the file that contains the component that renders the fetched data.
 
 # License
 
-MIT
+MIT @ Raí Siqueira

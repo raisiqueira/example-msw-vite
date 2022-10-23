@@ -10,6 +10,9 @@ describe('useHLTVMatches', () => {
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true))
 
-    expect(result.current.data).toHaveLength(5)
+    const matches = result.current.data
+
+    expect(matches).toHaveLength(5)
+    expect(matches?.filter((m) => m.live)).toHaveLength(3)
   })
 })
